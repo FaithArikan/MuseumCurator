@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 853dcbb19ddd4d99a7e2229e8ed23eeb, type: 3}
+  m_Name: PlayerSettingsSo
+  m_EditorClassIdentifier: 
+  canMove: 1
+  isMoving: 0
+  speed: 5
+  rotateSpeed: 5
+  onMoveValueChanged: {fileID: 11400000, guid: c924b1907abe02141b3813779753e568, type: 2}
+  onMovementBegan: {fileID: 11400000, guid: e11098574adbce14da521f076c85bc23, type: 2}
+  onMovementEnded: {fileID: 11400000, guid: b66c03b8fa099394789675555fb32239, type: 2}
