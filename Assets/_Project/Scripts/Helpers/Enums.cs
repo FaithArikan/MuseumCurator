@@ -17,9 +17,8 @@ public enum TileTypes
 {
     Default,
     Artifact,
-    Building,
+    Art,
     Road,
-    Tree
 }
 
 public enum GameState
@@ -32,4 +31,13 @@ public enum ResourceTypes
 {
     BlueMoney,
     PurpleMoney
+}
+
+public enum SectionTypes
+{
+    Sec1,
+    Sec2,
+    Sec3,
+    Sec4,
+    Sec5
 }
