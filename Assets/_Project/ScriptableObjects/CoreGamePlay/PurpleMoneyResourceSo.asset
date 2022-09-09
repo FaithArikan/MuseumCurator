@@ -18,3 +18,4 @@ MonoBehaviour:
   minimum: 0
   onResourceValueChanged: {fileID: 11400000, guid: 30954a546a4a865488f963d6653420db,
     type: 2}
+  moneySprite: {fileID: 21300000, guid: c0f59cb3f45d80d46aa09181c37ea9ff, type: 3}
