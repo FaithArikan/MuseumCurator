@@ -281,6 +281,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2f9786d6a474a0f8edc8e31618130fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 1099683289703892954}
+  col: {fileID: 1385666750931616182}
+  text: {fileID: 2450812215459952153}
+  moneyTypeImage: {fileID: 2693545317436500583}
   itemPrice: 1100
   priceResource: {fileID: 11400000, guid: f20612eca3d5870419bdc7ab97f5e00e, type: 2}
   onItemOpened: {fileID: 11400000, guid: 7fc5727dfb533c3428d40393e6f84f14, type: 2}
@@ -296,7 +300,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 12, y: 1, z: 15}
-  m_Center: {x: 0, y: 0, z: -5}
+  m_Center: {x: 0, y: 0.5, z: -5}
 --- !u!1 &3949034588181629835
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,8 +328,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3949034588181629835}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.185, z: 0}
-  m_LocalScale: {x: 2, y: 0.5, z: 2}
+  m_LocalPosition: {x: 0.119, y: 1.1202, z: -0}
+  m_LocalScale: {x: 4.336666, y: 0.37045, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3949034587851401124}
