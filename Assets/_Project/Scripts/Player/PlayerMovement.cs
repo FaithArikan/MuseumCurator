@@ -5,11 +5,9 @@ using ArcadeIdle.ScriptableObjects;
 
 namespace ArcadeIdle.Player
 {
-    [RequireComponent(typeof(CharacterController)), RequireComponent(typeof(PlayerInput)), 
-     RequireComponent(typeof(NavMeshAgent))]
+    [RequireComponent(typeof(CharacterController)), RequireComponent(typeof(PlayerInput))]
     public class PlayerMovement : MonoBehaviour
     {
-        private NavMeshAgent _agent;
         private PlayerInput _playerInput;
         private CharacterController _controller;
         
@@ -19,9 +17,8 @@ namespace ArcadeIdle.Player
 
         [SerializeField] private Transform vfx;
 
-        private void Start()
+        private void Awake()
         {
-            _agent = GetComponent<NavMeshAgent>();
             _controller = GetComponent<CharacterController>();
             _playerInput = GetComponent<PlayerInput>();
         }
@@ -68,6 +65,5 @@ namespace ArcadeIdle.Player
             if(playerSettings.CanMove) return;
             playerSettings.CanMove = true;
         }
-
     }
 }
