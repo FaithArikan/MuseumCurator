@@ -12,6 +12,8 @@ namespace ArcadeIdle.ScriptableObjects
         [SerializeField] private int minimum;
         [SerializeField] private GameEvent onResourceValueChanged;
 
+        [SerializeField] private Sprite moneySprite;
+
         public int Amount
         {
             get => amount;
@@ -22,5 +24,7 @@ namespace ArcadeIdle.ScriptableObjects
                 onResourceValueChanged.Invoke();
             }
         }
+
+        public Sprite MoneySprite => moneySprite;
     }
 }
