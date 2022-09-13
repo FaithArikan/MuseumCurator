@@ -25,7 +25,10 @@ namespace ArcadeIdle.TileSystem
 
         private void TileOnTileOpenAction(int value)
         {
-            priceText.text = Utils.FormatCash(value);
+            if (priceText != null)
+            {
+                priceText.text = Utils.FormatCash(value);
+            }
         }
     }
 }
