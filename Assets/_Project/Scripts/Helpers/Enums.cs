@@ -16,9 +16,15 @@ public enum MoveDirections
 public enum TileTypes
 {
     Default,
+    Empty,
+    Water,
+    Wall,
     Artifact,
     Art,
+    Bench,
+    Vase,
     Road,
+    Tree
 }
 
 public enum GameState
