@@ -5,7 +5,8 @@ namespace ArcadeIdle.Helpers
 {
     public static class Utils
     {
-        public static T FindComponentInChildWithTag<T> (GameObject parent, string tag) where T : Component {
+        public static T FindComponentInChildWithTag<T> (GameObject parent, string tag) where T : Component 
+        {
             Transform t = parent.transform;
             foreach (Transform tr in t) {
                 if (tr.CompareTag (tag)) {
@@ -15,7 +16,8 @@ namespace ArcadeIdle.Helpers
             return null;
         }
 
-        public static List<T> FindComponentsInChildWithTag<T> (GameObject parent, string tag) where T : Component {
+        public static List<T> FindComponentsInChildWithTag<T> (GameObject parent, string tag) where T : Component 
+        {
             List<T> children = new List<T> ();
 
             Transform t = parent.transform;
@@ -80,6 +82,33 @@ namespace ArcadeIdle.Helpers
             if (Value >= 1000)
                 return (Value / 1000D).ToString("0.##K");
             return Value.ToString("#,0");
+        }
+        
+        public static GameObject InstantiateGameObject(GameObject prefab, GameObject parent)
+        {
+            GameObject go = GameObject.Instantiate(prefab);
+            if (go != null && parent != null)
+            {
+                Transform t = go.transform;
+                t.SetParent(parent.transform);
+                t.localPosition = Vector3.zero;
+                t.localRotation = Quaternion.identity;
+                t.localScale = Vector3.one;
+                RectTransform rect = go.transform as RectTransform;
+                if (rect != null)
+                {
+                    rect.anchoredPosition = Vector3.zero;
+                    rect.localRotation = Quaternion.identity;
+                    rect.localScale = Vector3.one;
+                    if (rect.anchorMin.x != rect.anchorMax.x && rect.anchorMin.y != rect.anchorMax.y)
+                    {
+                        rect.offsetMin = Vector2.zero;
+                        rect.offsetMax = Vector2.zero;
+                    }
+                }
+                go.layer = parent.layer;
+            }
+            return go;
         }
 
         #region Vectors
