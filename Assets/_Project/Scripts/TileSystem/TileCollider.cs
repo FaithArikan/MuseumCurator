@@ -22,11 +22,17 @@ namespace ArcadeIdle.TileSystem
 
         private void OnThisTileOpened(bool b)
         {
-            outCol.isTrigger = b;
-            outCol.enabled = b;
-            
-            inCol.isTrigger = !b;
-            inCol.enabled = b;
+            if (outCol != null)
+            {
+                outCol.isTrigger = b;
+                outCol.enabled = b;
+            }
+
+            if (inCol != null)
+            {
+                inCol.isTrigger = !b;
+                inCol.enabled = b;
+            }
         }
 
         private void OnDisable()
