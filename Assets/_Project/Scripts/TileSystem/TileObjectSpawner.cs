@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using TMPro;
 using UnityEngine;
 
 namespace ArcadeIdle.TileSystem
@@ -40,7 +41,8 @@ namespace ArcadeIdle.TileSystem
         {
             gO.transform.DOMoveY(transform.localPosition.y + 1, 1f).OnComplete
                 (() => gO.transform.DOMoveY(transform.localPosition.y, 1f));
-            gO.transform.DORotate(new Vector3(0f, 360f, 0f), 2f, RotateMode.FastBeyond360);
+            gO.transform.DORotate(new Vector3(0f, 360f, 0f), 2f, RotateMode.FastBeyond360).
+                OnComplete(() => gO.GetComponentInChildren<TextMeshProUGUI>().enabled = true);
         }
     }
 }
