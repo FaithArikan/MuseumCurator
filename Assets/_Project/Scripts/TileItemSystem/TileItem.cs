@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using ArcadeIdle.Helpers;
 using ArcadeIdle.Helpers.Events;
+using ArcadeIdle.SaveSystem;
 using ArcadeIdle.ScriptableObjects;
 using DG.Tweening;
 using TMPro;
@@ -17,15 +19,52 @@ namespace ArcadeIdle.TileItemSystem
         [SerializeField] private Image moneyTypeImage;
         
         [SerializeField] private int itemPrice;
+        [SerializeField] private bool isItemOpened;
+        private int _beginItemPrice;
         [SerializeField] private ResourceSO priceResource;
 
         [SerializeField] private GameEvent onItemOpened;
+        public event Action<int> OnItemOpenedAction;
 
         private void Awake()
         {
-            OnItemVisible();
+            _beginItemPrice = itemPrice;
+        }
+
+        private void OnEnable()
+        {
+            Load();
+            if (!isItemOpened)
+            {
+                OnItemVisible();
+            }
+            else
+            {
+                OnItemEnable();
+            }
+        }
+
+        private void OnDisable()
+        {
+            Save();
+        }
+
+        #region Save-Load
+        
+        private void Save()
+        {
+            SaveManager.BinarySerialize($"{gameObject.name}isItemOpened.arc", isItemOpened);
+            SaveManager.BinarySerialize($"{gameObject.name}itemPrice.arc", itemPrice);
+        }
+
+        private void Load()
+        {
+            isItemOpened = SaveManager.BinaryDeserialize<bool>($"{gameObject.name}isItemOpened.arc");
+            itemPrice = SaveManager.BinaryDeserialize<int>($"{gameObject.name}itemPrice.arc");
         }
         
+        #endregion
+
         private void OnTriggerStay(Collider other)
         {
             if (other.gameObject.CompareTag("Player"))
@@ -43,7 +82,7 @@ namespace ArcadeIdle.TileItemSystem
         
         private void OnItemEnable()
         {
-            onItemOpened.Invoke();
+            OnItemOpenedAction?.Invoke(_beginItemPrice);
             
             GetComponentInChildren<Canvas>().enabled = false;
             col.enabled = false;
