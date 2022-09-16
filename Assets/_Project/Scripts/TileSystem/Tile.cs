@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using ArcadeIdle.Helpers.Events;
+using ArcadeIdle.SaveSystem;
 using ArcadeIdle.ScriptableObjects;
 using TMPro;
 using UnityEngine;
@@ -20,12 +21,11 @@ namespace ArcadeIdle.TileSystem
 
         [SerializeField] private int tilePrice;
 
-        [Header("Game Events and Actions")]
         // Trying different events and actions to see which one is better
-        [SerializeField] private GameEvent onTileOpened;
         public event Action<int> OnTileOpenAction;
         public event Action OnTileSpawnObjectsAction;
         public UnityAction<bool> OnColliderAction = delegate { };
+        [SerializeField] private GameEvent onTileOpened;
         
         //GUI
         [SerializeField] private TextMeshProUGUI nameText;
@@ -56,30 +56,32 @@ namespace ArcadeIdle.TileSystem
             get => tileObjectAnim;
             set => tileObjectAnim = value;
         }
+
+        #region Save-Load
         
-        private void OpenTileForInteraction()
+        private void Save()
         {
-            isOpenableNow = true;
-            GetComponentInChildren<Canvas>().enabled = true;
+            SaveManager.BinarySerialize($"{gameObject.name}isTileOpened.arc", isTileOpened);
+            SaveManager.BinarySerialize($"{gameObject.name}tilePrice.arc", tilePrice);
         }
 
-        private void OnTriggerStay(Collider other)
+        private void Load()
         {
-            if (other.gameObject.CompareTag("Player"))
-            {
-                Decrease();
-            }
+            isTileOpened = SaveManager.BinaryDeserialize<bool>($"{gameObject.name}isTileOpened.arc");
+            tilePrice = SaveManager.BinaryDeserialize<int>($"{gameObject.name}tilePrice.arc");
         }
         
+        #endregion
+
         private void OnEnable()
         {
+            Load();
             nameCanvas.enabled = false;
-            
-            if (tilePrice == -1)
+            if (isTileOpened)
             {
-                tilePrice = Random.Range(100, 2500);
+                OnTileEnable();
+                return;
             }
-            
             if (tileType == TileTypes.Water) return;
 
             if (isBeginTile)
@@ -110,19 +112,38 @@ namespace ArcadeIdle.TileSystem
             OnTileOpenAction?.Invoke(tilePrice);
             moneyTypeImage.sprite = tilePriceResource.MoneySprite;
         }
-        
-         private void OnValidate()
+
+        private void OnDisable()
+        {
+            Save();
+        }
+
+        private void OnTriggerStay(Collider other)
+        {
+            if (other.gameObject.CompareTag("Player"))
+            {
+                Decrease();
+            }
+        }
+
+        private void OnValidate()
          {
              if (string.IsNullOrEmpty(tileName))
              {
-                 nameText.text = "default";
+                 nameText.text = "Default";
                  nameText.color = Color.magenta;
              }
              else
              {
                  nameText.text = tileName;
-                 nameText.color = Color.yellow;
+                 nameText.color = Color.blue;
              }
+             
+             if (tilePrice == -1)
+             {
+                 tilePrice = Random.Range(100, 2500);
+             }
+
              while (tileObjectsPositions.Count < tileObjects.Count)
              {
                  tileObjectsPositions.Add(new Vector3());
@@ -132,6 +153,7 @@ namespace ArcadeIdle.TileSystem
         private void OnTileEnable()
         {
             onTileOpened.Invoke();
+            
             OnColliderAction?.Invoke(false);
             OnTileSpawnObjectsAction?.Invoke();
 
