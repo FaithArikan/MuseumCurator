@@ -1,5 +1,5 @@
+using ArcadeIdle.SaveSystem;
 using UnityEngine;
-using UnityEngine.AI;
 using UnityEngine.InputSystem;
 using ArcadeIdle.ScriptableObjects;
 
@@ -10,19 +10,41 @@ namespace ArcadeIdle.Player
     {
         private PlayerInput _playerInput;
         private CharacterController _controller;
+        private Rigidbody _rb;
         
         private Vector3 _playerVelocity;
 
         [SerializeField] private PlayerSettingsSO playerSettings;
 
         [SerializeField] private Transform vfx;
-
         private void Awake()
         {
             _controller = GetComponent<CharacterController>();
             _playerInput = GetComponent<PlayerInput>();
+            _rb = GetComponent<Rigidbody>();
+        }
+        
+        private void OnEnable()
+        {
+            Load();
         }
 
+        private void OnDisable()
+        {
+            Save();
+        }
+
+        private void Save()
+        {
+            SaveManager.BinarySerialize("playerSettingsSpeed.arc", playerSettings.Speed);
+            SaveManager.BinarySerialize("playerSettingsRotateSpeed.arc", playerSettings.RotateSpeed);
+        }
+
+        private void Load()
+        {
+            playerSettings.Speed = SaveManager.BinaryDeserialize<float>("playerSettingsSpeed.arc");
+            playerSettings.RotateSpeed = SaveManager.BinaryDeserialize<float>("playerSettingsRotateSpeed.arc");
+        }
         private void Update()
         {
             if (!playerSettings.CanMove) return;
@@ -58,11 +80,16 @@ namespace ArcadeIdle.Player
         public void StopMovement()
         {
             if(!playerSettings.CanMove) return;
+            _rb.velocity = Vector3.zero;
+            _controller.enabled = false;
             playerSettings.CanMove = false;
         }
+        
         public void StartMovement()
         {
             if(playerSettings.CanMove) return;
+            _rb.velocity = Vector3.zero;
+            _controller.enabled = true;
             playerSettings.CanMove = true;
         }
     }
