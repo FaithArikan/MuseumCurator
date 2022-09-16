@@ -47,3 +47,11 @@ public enum SectionTypes
     Sec4,
     Sec5
 }
+
+public enum PaintType
+{
+    Blue,
+    Green,
+    Skin,
+    Brown
+}
