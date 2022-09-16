@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canMove: 1
   isMoving: 0
-  speed: 5
-  rotateSpeed: 5
+  speed: 10
+  rotateSpeed: 10
   onMoveValueChanged: {fileID: 11400000, guid: c924b1907abe02141b3813779753e568, type: 2}
   onMovementBegan: {fileID: 11400000, guid: e11098574adbce14da521f076c85bc23, type: 2}
   onMovementEnded: {fileID: 11400000, guid: b66c03b8fa099394789675555fb32239, type: 2}

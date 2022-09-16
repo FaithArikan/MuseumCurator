@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BlueMoneyResourceSo
   m_EditorClassIdentifier: 
   resourceType: 0
-  amount: 1495
+  amount: 1000
   maximum: 2147483647
   minimum: 0
   onResourceValueChanged: {fileID: 11400000, guid: 30954a546a4a865488f963d6653420db,
