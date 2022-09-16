@@ -11,6 +11,7 @@ using UnityEngine.UI;
 
 namespace ArcadeIdle.TileItemSystem
 {
+    [SelectionBase]
     public class TileItem : MonoBehaviour
     {
         [SerializeField] private Canvas canvas;

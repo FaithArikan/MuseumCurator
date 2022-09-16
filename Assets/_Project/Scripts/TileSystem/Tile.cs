@@ -12,6 +12,7 @@ using Random = UnityEngine.Random;
 
 namespace ArcadeIdle.TileSystem
 {
+    [SelectionBase]
     public class Tile : MonoBehaviour
     {
         [SerializeField] private string tileName;
