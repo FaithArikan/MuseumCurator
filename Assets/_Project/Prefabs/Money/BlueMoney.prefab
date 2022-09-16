@@ -1,0 +1,157 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1645202219190817386
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1645202219190817387}
+  - component: {fileID: 1112587480}
+  - component: {fileID: 7963952652480778337}
+  - component: {fileID: 4416418395699788331}
+  - component: {fileID: 8099314524214581181}
+  m_Layer: 0
+  m_Name: BlueMoney
+  m_TagString: Resource
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1645202219190817387
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645202219190817386}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.18, y: 0.87, z: 2.16}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1646869743639846810}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &1112587480
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645202219190817386}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 2
+--- !u!65 &7963952652480778337
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645202219190817386}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6, y: 0.3, z: 0.6}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4416418395699788331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645202219190817386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cf8abd37b424e17b33544e793c16478, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8099314524214581181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645202219190817386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b63347da5b694e02b26bbfbdefd1f187, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceSo: {fileID: 11400000, guid: 9a71db89e40a33c428210561bafc2e0b, type: 2}
+  sumAmount: 1
+  _audioClip: {fileID: 8300000, guid: 858a699c88b45f140ac6a390e37039f3, type: 3}
+--- !u!1001 &1645202220120395078
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1645202219190817387}
+    m_Modifications:
+    - target: {fileID: 1000011501826600, guid: b34bf25cecb5fc24c91de3edea19cb13, type: 3}
+      propertyPath: m_Name
+      value: BlueMoneyVfx
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013454152412, guid: b34bf25cecb5fc24c91de3edea19cb13, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013454152412, guid: b34bf25cecb5fc24c91de3edea19cb13, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013454152412, guid: b34bf25cecb5fc24c91de3edea19cb13, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013454152412, guid: b34bf25cecb5fc24c91de3edea19cb13, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013454152412, guid: b34bf25cecb5fc24c91de3edea19cb13, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013454152412, guid: b34bf25cecb5fc24c91de3edea19cb13, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013454152412, guid: b34bf25cecb5fc24c91de3edea19cb13, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013454152412, guid: b34bf25cecb5fc24c91de3edea19cb13, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013454152412, guid: b34bf25cecb5fc24c91de3edea19cb13, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013454152412, guid: b34bf25cecb5fc24c91de3edea19cb13, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013454152412, guid: b34bf25cecb5fc24c91de3edea19cb13, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b34bf25cecb5fc24c91de3edea19cb13, type: 3}
+--- !u!4 &1646869743639846810 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4000013454152412, guid: b34bf25cecb5fc24c91de3edea19cb13,
+    type: 3}
+  m_PrefabInstance: {fileID: 1645202220120395078}
+  m_PrefabAsset: {fileID: 0}

@@ -244,6 +244,7 @@ GameObject:
   - component: {fileID: 3949034587851401124}
   - component: {fileID: 5213592277949484656}
   - component: {fileID: 1385666750931616182}
+  - component: {fileID: 335994818563939327}
   m_Layer: 0
   m_Name: Statue
   m_TagString: Untagged
@@ -285,7 +286,7 @@ MonoBehaviour:
   col: {fileID: 1385666750931616182}
   text: {fileID: 2450812215459952153}
   moneyTypeImage: {fileID: 2693545317436500583}
-  itemPrice: 1100
+  itemPrice: 112
   priceResource: {fileID: 11400000, guid: f20612eca3d5870419bdc7ab97f5e00e, type: 2}
   onItemOpened: {fileID: 11400000, guid: 7fc5727dfb533c3428d40393e6f84f14, type: 2}
 --- !u!65 &1385666750931616182
@@ -301,6 +302,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 12, y: 1, z: 15}
   m_Center: {x: 0, y: 0.5, z: -5}
+--- !u!114 &335994818563939327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3949034587851401127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d456ac9eec974a8babbfbd023bd4fb0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blueMoney: {fileID: 1645202219190817386, guid: 852afcd9fd08c0f4d8c48a2e4a1fbf54,
+    type: 3}
+  purpleMoney: {fileID: 8201732236690986453, guid: b29fc8c4c1fa6ea4a8257177a82632bd,
+    type: 3}
 --- !u!1 &3949034588181629835
 GameObject:
   m_ObjectHideFlags: 0

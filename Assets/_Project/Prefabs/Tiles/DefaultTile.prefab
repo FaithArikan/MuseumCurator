@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 3277174291357490870}
   m_Layer: 0
   m_Name: TileGround
-  m_TagString: Untagged
+  m_TagString: Plane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -210,7 +210,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1653191794034229520, guid: d22702ea245a7e249a5e5c49f1b65e47, type: 3}
+  - {fileID: 2100000, guid: 3a235d04a6688a94c804b88649f58149, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -756,7 +756,7 @@ MonoBehaviour:
   isOpenableNow: 0
   isTileOpened: 0
   tilePrice: 1200
-  onTileOpened: {fileID: 11400000, guid: a2f481fbe392e374fa97a1841327ccf4, type: 2}
+  onTileOpened: {fileID: 0}
   nameText: {fileID: 3277174291994164298}
   tileCanvas: {fileID: 3277174292604679233}
   nameCanvas: {fileID: 3277174291052206949}
