@@ -16,11 +16,21 @@ namespace ArcadeIdle.TileSystem
 
         private void OnEnable()
         {
-            _tile.OnTileOpenAction += TileOnTileOpenAction; 
+            AssignActions();
         }
+
         private void OnDisable()
         {
-            _tile.OnTileOpenAction -= TileOnTileOpenAction; 
+            UnAssignActions();
+        }
+        private void AssignActions()
+        {
+            _tile.OnTileOpenAction += TileOnTileOpenAction;
+        }
+
+        private void UnAssignActions()
+        {
+            _tile.OnTileOpenAction -= TileOnTileOpenAction;
         }
 
         private void TileOnTileOpenAction(int value)
