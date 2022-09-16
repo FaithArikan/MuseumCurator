@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e948ff4c9a1456eba1d56ae47bb9079, type: 3}
+  m_Name: GreenPaint
+  m_EditorClassIdentifier: 
+  paintType: 1
+  material: {fileID: 2100000, guid: 863bde5a6356276448e629db89acfef6, type: 2}
+  amount: 3
+  onResourceValueChanged: {fileID: 11400000, guid: 6f1eb8445ca1f8e4fa88924956f73690,
+    type: 2}

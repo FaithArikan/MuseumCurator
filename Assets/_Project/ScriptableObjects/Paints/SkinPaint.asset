@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e948ff4c9a1456eba1d56ae47bb9079, type: 3}
+  m_Name: SkinPaint
+  m_EditorClassIdentifier: 
+  paintType: 2
+  material: {fileID: 2100000, guid: 0cc0b632fa073c94088f9a21585b668d, type: 2}
+  amount: 3
+  onResourceValueChanged: {fileID: 11400000, guid: 265fbd2238db8ea468e22e5b288fc05e,
+    type: 2}
