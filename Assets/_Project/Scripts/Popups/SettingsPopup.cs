@@ -1,4 +1,6 @@
-﻿using ArcadeIdle.ScriptableObjects;
+﻿using System;
+using ArcadeIdle.SaveSystem;
+using ArcadeIdle.ScriptableObjects;
 using UnityEngine;
 
 namespace ArcadeIdle.Popups
@@ -18,6 +20,40 @@ namespace ArcadeIdle.Popups
         
         [SerializeField] private string linkedInURL = "https://www.linkedin.com/in/fatiharikan/";
         [SerializeField] private string githubURL = "https://github.com/FaithArikan";
+
+        private void OnEnable()
+        {
+            Load();
+        }
+
+        private void OnDisable()
+        {
+            Save();
+        }
+
+        #region Save-Load
+        
+        private void Save()
+        {
+            SaveManager.BinarySerialize("isMusicOn.arc", musicOn.activeSelf);
+            SaveManager.BinarySerialize("isSoundOn.arc", soundOn.activeSelf);
+            
+            SaveManager.BinarySerialize("isMusicOff.arc", musicOff.activeSelf);
+            SaveManager.BinarySerialize("isSoundOff.arc", soundOff.activeSelf);
+
+        }
+
+        private void Load()
+        {
+            musicOn.SetActive(SaveManager.BinaryDeserialize<bool>("isMusic.arc"));
+            soundOn.SetActive(SaveManager.BinaryDeserialize<bool>("isSound.arc"));
+            
+            musicOff.SetActive(SaveManager.BinaryDeserialize<bool>("isMusicOff.arc"));
+            soundOff.SetActive(SaveManager.BinaryDeserialize<bool>("isSoundOff.arc"));
+        }
+        
+        #endregion
+
         
         public void OpenLinkedInProfile()
         {
