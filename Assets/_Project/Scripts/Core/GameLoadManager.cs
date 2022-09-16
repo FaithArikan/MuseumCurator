@@ -19,7 +19,7 @@ namespace ArcadeIdle.Core
         {
             for (int i = 0; i < sceneReferance.beginScenes.Count; i++)
             {
-                SceneManager.LoadScene((string) sceneReferance.beginScenes[i].name, LoadSceneMode.Additive);
+                SceneManager.LoadScene(sceneReferance.beginScenes[i].name, LoadSceneMode.Additive);
             }
             
             onGameStarted.Invoke();
