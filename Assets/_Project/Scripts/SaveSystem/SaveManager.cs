@@ -2,13 +2,12 @@
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-using ArcadeIdle.Helpers;
 
 namespace ArcadeIdle.SaveSystem
 {
-    public class SaveManager : PersistentSingleton<SaveManager>, IGameSave
+    public static class SaveManager
     {
-	    public void Save(string filename, object data) 
+	    public static void BinarySerialize(string filename, object data) 
 	    {
 		    FileStream file = File.Open(GetFullPath(filename), FileMode.OpenOrCreate);
 		    BinaryFormatter bf = new BinaryFormatter();
@@ -26,7 +25,7 @@ namespace ArcadeIdle.SaveSystem
 		    }
 	    }
 
-	    public T Load<T>(string filename) where T : new() 
+	    public static T BinaryDeserialize<T>(string filename) where T : new() 
 	    {
 		    T result = new T();
 
@@ -51,18 +50,22 @@ namespace ArcadeIdle.SaveSystem
 		    }
 		    return result;
 	    }
-	    public bool FileExists(string filename)
+	    
+	    public static bool FileExists(string filename)
 	    {
 		    return File.Exists(GetFullPath(filename));
 	    }
-	    public void Delete(string filename) 
+	    
+	    public static void Delete(string filename) 
 	    {
 		    File.Delete(GetFullPath(filename));
 	    }
-	    public string GetFullPath(string filename)
+	    
+	    public static string GetFullPath(string filename)
 	    {
 		    return Path.Combine(Application.persistentDataPath, filename);
 	    }
-	    public void WriteToDisk() { }
+	    
+	    public static void WriteToDisk() { }
     }
 }

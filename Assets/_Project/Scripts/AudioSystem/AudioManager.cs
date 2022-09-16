@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using ArcadeIdle.Helpers;
+using ArcadeIdle.SaveSystem;
 using ArcadeIdle.ScriptableObjects;
 using UnityEngine;
 
@@ -15,18 +16,20 @@ namespace ArcadeIdle.AudioSystem
 
         [SerializeField] private GameSettingsSO gameSettings;
 
-        #region ActionAssignment
-
-        private void Awake()
+        private void OnEnable()
         {
             AssignActions();
+            Load();
         }
 
         private void OnDisable()
         {
+            Save();
             UnAssignActions();
         }
 
+        #region Action Assignment
+        
         private void AssignActions()
         {
             gameSettings.MusicSettingChanged += GameSettingsOnMusicSettingChanged;
@@ -41,6 +44,22 @@ namespace ArcadeIdle.AudioSystem
         }
 
 
+        #endregion
+
+        #region Save-Load
+        
+        private void Save()
+        {
+            SaveManager.BinarySerialize("isMusic.arc", gameSettings.IsMusicOn);
+            SaveManager.BinarySerialize("isSound.arc", gameSettings.IsSoundOn);
+        }
+
+        private void Load()
+        {
+            gameSettings.IsMusicOn = SaveManager.BinaryDeserialize<bool>("isMusic.arc");
+            gameSettings.IsSoundOn = SaveManager.BinaryDeserialize<bool>("isSound.arc");
+        }
+        
         #endregion
 
         public void OnTileOpened()
